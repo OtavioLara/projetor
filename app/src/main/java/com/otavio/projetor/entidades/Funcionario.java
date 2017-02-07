@@ -11,4 +11,6 @@ public class Funcionario extends Pessoa {
         super(nome, email);
         this.senha = senha;
     }
+
+
 }

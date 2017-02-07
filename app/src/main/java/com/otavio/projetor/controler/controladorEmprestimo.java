@@ -1,10 +1,11 @@
 package com.otavio.projetor.controler;
 
-import android.provider.ContactsContract;
-
+import com.otavio.projetor.entidades.Emprestimo;
 import com.otavio.projetor.entidades.Funcionario;
-import com.otavio.projetor.entidades.Projetor;
-import com.otavio.projetor.entidades.Usuario;
+import com.otavio.projetor.entidades.PessoaLogada;
+import com.otavio.projetor.repositorio.RepositorioEmprestimoMemoria;
+import com.otavio.projetor.repositorio.RepositorioProjetorMemoria;
+import com.otavio.projetor.repositorio.RepositorioUsuarioMemoria;
 
 import java.util.Date;
 
@@ -13,8 +14,12 @@ import java.util.Date;
  */
 
 public class controladorEmprestimo {
-    public static void criarEmprestimo(Usuario usuario, Projetor projetor, Funcionario funcionario, int id, Date data, int duracao){
-
+    private static RepositorioProjetorMemoria repoProj = RepositorioProjetorMemoria.getInstance();
+    private static RepositorioUsuarioMemoria repoUsu = RepositorioUsuarioMemoria.getInstance();
+    public static boolean criarEmprestimo(Date data, int duracao, long numeroPatrimonio,String emailUsuario,boolean isEmprestimoRealizado){
+        return RepositorioEmprestimoMemoria.getInstance().adicionarEmprestimo(
+                new Emprestimo(data,duracao,repoProj.buscarProjetor(numeroPatrimonio),
+                        (Funcionario)PessoaLogada.getInstance().getPessoaLogada(), repoUsu.buscarUsuario(emailUsuario),isEmprestimoRealizado));
     }
     public static void removerEmprestimo(int id){
 

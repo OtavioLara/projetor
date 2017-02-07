@@ -9,13 +9,13 @@ public class PessoaLogada {
         return ourInstance;
     }
     private Pessoa pessoaLogada;
-    private void setPessoaLogada(Pessoa novaPessoa){
+    public void setPessoaLogada(Pessoa novaPessoa){
         pessoaLogada = novaPessoa;
     }
-    private Pessoa getPessoaLogada(){
+    public Pessoa getPessoaLogada(){
         return pessoaLogada;
     }
     private PessoaLogada() {
-
+        pessoaLogada = null;
     }
 }

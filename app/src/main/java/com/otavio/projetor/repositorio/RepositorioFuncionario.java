@@ -7,8 +7,8 @@ import com.otavio.projetor.entidades.Funcionario;
 
 public interface RepositorioFuncionario {
     public boolean adicionarFuncionario(Funcionario funcionario);
-    public boolean removerFuncionario(int id);
-    public boolean alterarFuncionario (Funcionario novoFuncionario,int id);
+    public boolean removerFuncionario(String email);
+    public boolean alterarFuncionario (Funcionario novoFuncionario,String email);
     public Funcionario buscarFuncionario(String email);
     public boolean logarPessoa(String email,String senha);
 }
