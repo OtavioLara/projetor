@@ -10,5 +10,5 @@ public interface RepositorioEmprestimo {
     public boolean adicionarEmprestimo(Emprestimo emprestimo);
     public boolean removerEmprestimo(int id);
     public boolean alterarEmprestimo(Emprestimo novoEmprestimo, int idAntigoEmprestimo);
-    public boolean buscarEmprestimo(int id);
+    public Emprestimo buscarEmprestimo(int id);
 }

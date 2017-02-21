@@ -14,7 +14,7 @@ public class Projetor {
     private long numPatrimonio; // sempre 6 digitos
     private int status;//Status para verificar se o projetor já está livre ou emprestado ou em manutencao
 
-    public Projetor(String apelido, int numPatrimonio) {
+    public Projetor(String apelido, long numPatrimonio) {
         this.apelido = apelido;
         this.numPatrimonio = numPatrimonio;
         this.status = LIVRE;

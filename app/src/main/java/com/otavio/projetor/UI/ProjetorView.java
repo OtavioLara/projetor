@@ -1,4 +1,4 @@
-package com.otavio.projetor;
+package com.otavio.projetor.UI;
 
         import android.os.Bundle;
         import android.support.annotation.Nullable;

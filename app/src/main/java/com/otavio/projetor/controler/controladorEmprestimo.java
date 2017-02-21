@@ -3,9 +3,8 @@ package com.otavio.projetor.controler;
 import com.otavio.projetor.entidades.Emprestimo;
 import com.otavio.projetor.entidades.Funcionario;
 import com.otavio.projetor.entidades.PessoaLogada;
+import com.otavio.projetor.repositorio.RepositorioEmprestimo;
 import com.otavio.projetor.repositorio.RepositorioEmprestimoMemoria;
-import com.otavio.projetor.repositorio.RepositorioProjetorMemoria;
-import com.otavio.projetor.repositorio.RepositorioUsuarioMemoria;
 
 import java.util.Date;
 
@@ -14,14 +13,21 @@ import java.util.Date;
  */
 
 public class controladorEmprestimo {
-    private static RepositorioProjetorMemoria repoProj = RepositorioProjetorMemoria.getInstance();
-    private static RepositorioUsuarioMemoria repoUsu = RepositorioUsuarioMemoria.getInstance();
-    public static boolean criarEmprestimo(Date data, int duracao, long numeroPatrimonio,String emailUsuario,boolean isEmprestimoRealizado){
-        return RepositorioEmprestimoMemoria.getInstance().adicionarEmprestimo(
-                new Emprestimo(data,duracao,repoProj.buscarProjetor(numeroPatrimonio),
-                        (Funcionario)PessoaLogada.getInstance().getPessoaLogada(), repoUsu.buscarUsuario(emailUsuario),isEmprestimoRealizado));
-    }
-    public static void removerEmprestimo(int id){
+    private static RepositorioEmprestimo repoEmp = RepositorioEmprestimoMemoria.getInstance();
 
+    public static boolean criarEmprestimo(Date data, int duracao, long numeroPatrimonio,String emailUsuario,boolean isEmprestimoRealizado){
+        return repoEmp.adicionarEmprestimo(
+                new Emprestimo(data,duracao,controladorProjetor.buscarProjetor(numeroPatrimonio),
+                        (Funcionario)PessoaLogada.getInstance().getPessoaLogada(), controladorUsuario.buscarUsuario(emailUsuario),isEmprestimoRealizado));
+    }
+    public static boolean removerEmprestimo(int id){
+        return repoEmp.removerEmprestimo(id);
+    }
+    public static boolean alterarEmprestimo(Date data, int duracao, long numeroPatrimonio,String emailUsuario,boolean isEmprestimoRealizado ,int idAntigoEmprestimo){
+        return repoEmp.alterarEmprestimo(new Emprestimo(data,duracao,controladorProjetor.buscarProjetor(numeroPatrimonio),
+                (Funcionario)PessoaLogada.getInstance().getPessoaLogada(), controladorUsuario.buscarUsuario(emailUsuario),isEmprestimoRealizado), idAntigoEmprestimo);
+    }
+    public static Emprestimo buscarEmprestimo(int id){
+        return repoEmp.buscarEmprestimo(id);
     }
 }

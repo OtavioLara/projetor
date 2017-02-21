@@ -40,8 +40,8 @@ public class RepositorioEmprestimoMemoria implements RepositorioEmprestimo {
     }
 
     @Override
-    public boolean buscarEmprestimo(int id) {
-        return false;
+    public Emprestimo buscarEmprestimo(int id) {
+        return null;
     }
 
 }

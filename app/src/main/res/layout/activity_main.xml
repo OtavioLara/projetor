@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.otavio.projetor.MainActivity">
+    tools:context="com.otavio.projetor.UI.MainActivity">
 
     <include
         android:id="@+id/tool_bar"
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         />
 
-    <com.otavio.projetor.SlidingTabLayout
+    <com.otavio.projetor.UI.SlidingTabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

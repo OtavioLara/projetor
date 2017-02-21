@@ -1,4 +1,4 @@
-package com.otavio.projetor;
+package com.otavio.projetor.UI;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,14 +6,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.otavio.projetorView.R;
 
 public class EmprestimoView extends Fragment {
-
+    
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_emprestimo,container,false);
         return v;
     }
+
 }

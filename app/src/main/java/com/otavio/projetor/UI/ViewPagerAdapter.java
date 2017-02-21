@@ -1,4 +1,4 @@
-package com.otavio.projetor;
+package com.otavio.projetor.UI;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -36,7 +36,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             EmprestimoView emprestimoView = new EmprestimoView();
             return emprestimoView;
         }
-
 
     }
 

@@ -1,4 +1,4 @@
-package com.otavio.projetor;
+package com.otavio.projetor.UI;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.otavio.projetorView.R;
 
@@ -18,7 +20,7 @@ public class MainActivity extends ActionBarActivity {
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayout tabs;
-    CharSequence Titles[]={"Home","Events"};
+    CharSequence Titles[]={"Projetor","Emprestimo"};
     int Numboftabs =2;
 
     @Override
@@ -54,9 +56,6 @@ public class MainActivity extends ActionBarActivity {
 
         // Setting the ViewPager For the SlidingTabsLayout
         tabs.setViewPager(pager);
-
-
-
     }
 
 
@@ -73,12 +72,16 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         //if (id == R.id.action_settings) {
         //    return true;
         //}
 
         return super.onOptionsItemSelected(item);
+    }
+    public void teste(View view){
+        CharSequence text = "Texto legal";
+        Toast toast = Toast.makeText(this.getApplicationContext(), text, Toast.LENGTH_LONG);
+        toast.show();
     }
 }

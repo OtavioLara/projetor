@@ -9,6 +9,6 @@ import com.otavio.projetor.entidades.Projetor;
 public interface RepositorioProjetor {
     public boolean adicionarProjetor(Projetor projetor);
     public boolean removerProjetor(long numeroPatrimonio);
-    public boolean alterarProjetor(Projetor novoProjetor, int numeroPatrimonioAntigo);
+    public boolean alterarProjetor(Projetor novoProjetor, long numeroPatrimonioAntigo);
     public Projetor buscarProjetor(long numeroPatrimonio);
 }
